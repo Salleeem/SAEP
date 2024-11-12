@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Tarefa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Cadastrar Nova Tarefa</h2>
+            <!-- Formulário configurado para enviar os dados via POST para /tasks -->
+            <form action="/tasks/create" method="POST">
+                <!-- Campo de Título -->
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" required>
+
+                <!-- Campo de Descrição -->
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" name="descricao" required></textarea>
+
+                <!-- Campo de Setor -->
+                <label for="setor">Setor</label>
+                <input type="text" id="setor" name="setor">
+
+                <!-- Campo de Status (Não editável) -->
+                <label for="status">Status</label>
+                <select id="status" name="status" disabled>
+                    <option value="A Fazer" selected>A Fazer</option>
+                    <!-- Outras opções, mas desabilitadas para o usuário -->
+                    <option value="Fazendo">Fazendo</option>
+                    <option value="Concluído">Concluído</option>
+                </select>
+
+                <!-- Campo de Prioridade -->
+                <label for="prioridade">Prioridade</label>
+                <select id="prioridade" name="prioridade">
+                    <option value="Baixa">Baixa</option>
+                    <option value="Média">Média</option>
+                    <option value="Alta">Alta</option>
+                </select>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/logout">Sair</a>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-container">
+            <h2>Bem-vindo, <span th:text="${userName}"></span>!</h2>
+
+            <!-- Botão para cadastrar nova tarefa -->
+            <a href="/cadastro-tarefa" class="btn">Cadastrar Tarefa</a>
+
+            <div class="kanban-container">
+                <div class="kanban-column">
+                    <h3>A Fazer</h3>
+                    <div th:each="tarefa : ${tarefas}" th:if="${tarefa.status == 'A Fazer'}">
+                        <div class="task-card">
+                            <h4 th:text="${tarefa.titulo}"></h4>
+                            <p th:text="${tarefa.descricao}"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanban-column">
+                    <h3>Fazendo</h3>
+                    <div th:each="tarefa : ${tarefas}" th:if="${tarefa.status == 'Fazendo'}">
+                        <div class="task-card">
+                            <h4 th:text="${tarefa.titulo}"></h4>
+                            <p th:text="${tarefa.descricao}"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanban-column">
+                    <h3>Concluído</h3>
+                    <div th:each="tarefa : ${tarefas}" th:if="${tarefa.status == 'Concluído'}">
+                        <div class="task-card">
+                            <h4 th:text="${tarefa.titulo}"></h4>
+                            <p th:text="${tarefa.descricao}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

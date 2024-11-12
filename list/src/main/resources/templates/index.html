@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="/style.css"> <!-- Certifique-se de que style.css está na pasta estática do Spring Boot -->
+</head>
+<body>
+    <div class="navbar">
+        <a th:href="@{/}">Home</a> <!-- Link para a página inicial -->
+        <a th:href="@{/login}">Login</a> <!-- Link para a página de login -->
+        <a th:href="@{/cadastro}">Cadastro</a> <!-- Link para a página de cadastro -->
+    </div>
+
+    <div class="container">
+        <h1>Bem-vindo à To-Do List</h1>
+        <p>Gerencie suas tarefas de forma eficiente. Faça login ou cadastre-se para começar!</p>
+    </div>
+</body>
+</html>
